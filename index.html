@@ -1,60 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Quang Tuan Truong</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quang Tuan Truong</title>
+
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0;
+    background: #0f172a;
+    color: #e2e8f0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-top: 40px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 5px;
+}
+
+p {
+    color: #cbd5f5;
+}
+
+a {
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.links {
+    margin-top: 10px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 18px;
+    border-radius: 10px;
+    margin-top: 15px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    background: #273449;
+}
+
+ul {
+    margin-top: 8px;
+}
+
+.tag {
+    display: inline-block;
+    background: #334155;
+    padding: 4px 10px;
+    margin-right: 6px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #93c5fd;
+}
+</style>
 </head>
 
-<body style="max-width:800px; margin:auto; font-family:Arial; line-height:1.6;">
+<body>
 
+<div class="container">
+
+<!-- HEADER -->
 <h1>Quang Tuan Truong</h1>
-<p>MS AI @ Boston University</p>
+<p>MS in Artificial Intelligence @ Boston University</p>
 
-<p>
-<a href="https://github.com/tuan-truong-uf">GitHub</a> |
-<a href="https://linkedin.com/in/tuan-truongq">LinkedIn</a>
-</p>
+<div class="links">
+    <a href="https://github.com/tuan-truong-uf">GitHub</a> |
+    <a href="https://linkedin.com/in/tuan-truongq">LinkedIn</a> |
+    <a href="mailto:quangtuantruong0403@gmail.com">Email</a>
+</div>
 
-<hr>
-
+<!-- ABOUT -->
 <h2>About</h2>
 <p>
-I work on machine learning systems where perception affects decision-making. 
-My focus is on multimodal models, retrieval systems, and stability in long-horizon pipelines.
+I build machine learning systems where perception affects decision-making. 
+My work focuses on multimodal models, retrieval systems, and stability in long-horizon pipelines, 
+especially in robotics and LLM-based systems.
 </p>
 
-<hr>
-
+<!-- PROJECTS -->
 <h2>Projects</h2>
 
+<div class="card">
 <h3>Vision-Language-Action Stabilization</h3>
+<div>
+<span class="tag">PyTorch</span>
+<span class="tag">Robotics</span>
+<span class="tag">Computer Vision</span>
+</div>
 <ul>
-<li>Studied perception drift in VLA systems</li>
-<li>Built temporal stabilization module</li>
-<li>Evaluated under noise, occlusion, viewpoint shifts</li>
+<li>Studied perception drift in VLA systems causing unstable actions</li>
+<li>Built temporal stabilization module for consistent representations</li>
+<li>Evaluated robustness under occlusion, noise, and viewpoint shifts</li>
 </ul>
+</div>
 
+<div class="card">
 <h3>Multimodal Emotion System</h3>
+<div>
+<span class="tag">CLIP</span>
+<span class="tag">DINOv2</span>
+<span class="tag">wav2vec</span>
+</div>
 <ul>
-<li>Combined video, audio, text</li>
-<li>Explored late vs intermediate fusion</li>
+<li>Combined video, audio, and text for real-time inference</li>
+<li>Explored late vs intermediate fusion strategies</li>
 <li>Tested robustness under missing modalities</li>
 </ul>
+</div>
 
+<div class="card">
 <h3>Semantic Search Engine</h3>
+<div>
+<span class="tag">FAISS</span>
+<span class="tag">Embeddings</span>
+<span class="tag">RAG</span>
+</div>
 <ul>
 <li>Built embedding-based retrieval system</li>
-<li>Used FAISS for vector search</li>
-<li>Created interactive interface</li>
+<li>Used FAISS for fast vector search</li>
+<li>Created interactive search interface</li>
 </ul>
+</div>
 
-<hr>
+<div class="card">
+<h3>BabyVLM Research</h3>
+<div>
+<span class="tag">ViT</span>
+<span class="tag">Multimodal</span>
+<span class="tag">Prompting</span>
+</div>
+<ul>
+<li>Worked on multimodal representation learning</li>
+<li>Designed visual similarity architecture</li>
+<li>Explored structured prompting and retrieval signals</li>
+</ul>
+</div>
 
+<!-- INSIGHTS -->
 <h2>Insights</h2>
 <ul>
-<li>Perception instability leads to action instability</li>
-<li>Fusion strategy affects robustness</li>
-<li>Retrieval improves consistency</li>
+<li>Perception instability leads to downstream action instability</li>
+<li>Fusion strategy significantly affects robustness</li>
+<li>Retrieval grounding improves consistency in predictions</li>
 </ul>
+
+</div>
 
 </body>
 </html>
