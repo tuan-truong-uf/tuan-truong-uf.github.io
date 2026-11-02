@@ -4,21 +4,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Quang Tuan Truong — research in geometric machine learning, generative modeling, and computer vision.">
-<title>Quang Tuan Truong | Research</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Quang Tuan Truong — Research in geometric machine learning, generative modeling, and computer vision.">
+<title>Quang Tuan Truong</title>
 
 <style>
 :root {
-  --bg: #0b1220;
-  --surface: #111d2d;
-  --text: #e8eef6;
-  --muted: #a7b6c8;
-  --accent: #84bdf1;
-  --line: #29384c;
+  --ink: #182235;
+  --muted: #566171;
+  --accent: #174e87;
+  --line: #dce3ea;
+  --paper: #ffffff;
 }
 
 * { box-sizing: border-box; }
@@ -27,9 +22,11 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font: 16px/1.75 "DM Sans", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.65;
 }
 
 a {
@@ -40,165 +37,305 @@ a {
 a:hover { text-decoration: underline; }
 
 a:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid #6a9fd3;
   outline-offset: 4px;
 }
 
 .container {
-  max-width: 860px;
+  max-width: 1100px;
   margin: auto;
-  padding: 0 28px;
+  padding: 0 38px;
 }
 
-nav {
+/* ==========================================
+   HERO — BU CDS PHOTO
+   ========================================== */
+
+.hero {
+  position: relative;
+  min-height: 440px;
+  color: white;
+  background: #17212c;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("images.jpeg");
+  background-size: cover;
+  background-position: center 49%;
+
+  filter: grayscale(100%) contrast(1.15);
+  transform: scale(1.025);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 15, 26, 0.88) 0%,
+      rgba(7, 15, 26, 0.65) 43%,
+      rgba(7, 15, 26, 0.22) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(7, 15, 26, 0.42),
+      transparent 60%
+    );
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 28px;
+  padding-top: 25px;
+  flex-wrap: wrap;
+}
+
+.topbar a {
+  color: #f5f7fa;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  text-shadow: 0 1px 5px #0008;
+}
+
+.hero-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 42px;
+  padding: 65px 0 65px;
+}
+
+/* ==========================================
+   PIXEL PORTRAIT
+   ========================================== */
+
+.portrait {
+  flex: 0 0 180px;
+  text-align: center;
+}
+
+.portrait img {
+  display: block;
+  width: 175px;
+  height: 230px;
+  object-fit: contain;
+
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+
+  /*
+   * Keep the original drawing untouched.
+   * The source PNG's transparency is preserved.
+   * Invert the black pixels to white so they
+   * remain visible over the dark photograph.
+   */
+  filter: invert(1);
+}
+
+.portrait-note {
+  margin: 8px auto 0;
+  max-width: 180px;
+  color: #e1e5eb;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.hero-divider {
+  align-self: stretch;
+  width: 1px;
+  max-height: 260px;
+  background: rgba(255,255,255,0.45);
+}
+
+.hero-text h1 {
+  font-size: clamp(36px, 5vw, 57px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin: 0 0 18px;
+  color: #fff;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0;
+  color: #f0f2f5;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+  font-size: 15px;
+}
+
+.hero-links a { color: #fff; }
+
+.hero-links .separator {
+  color: rgba(255,255,255,0.55);
+}
+
+/* ==========================================
+   ACADEMIC CONTENT
+   ========================================== */
+
+main { padding: 16px 0 60px; }
+
+.section {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  column-gap: 36px;
   padding: 30px 0;
   border-bottom: 1px solid var(--line);
-}
-
-.brand {
-  color: var(--text);
-  font-weight: 700;
-}
-
-.navlinks {
-  display: flex;
-  gap: 22px;
-  flex-wrap: wrap;
-  font-size: 13px;
-}
-
-.navlinks a { color: var(--muted); }
-
-.hero { padding: 82px 0 66px; }
-
-.eyebrow {
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-}
-
-h1, h2, h3 {
-  font-family: "Source Serif 4", Georgia, serif;
-  font-weight: 500;
-}
-
-h1 {
-  font-size: clamp(36px, 6vw, 55px);
-  line-height: 1.17;
-  letter-spacing: -1px;
-  max-width: 740px;
-  margin: 18px 0 24px;
-}
-
-.intro {
-  font-size: 17px;
-  color: var(--muted);
-  max-width: 700px;
-}
-
-.social {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-  margin-top: 30px;
-  font-size: 14px;
-}
-
-section {
-  padding: 44px 0;
-  border-top: 1px solid var(--line);
   scroll-margin-top: 20px;
 }
 
-h2 {
-  font-size: 29px;
-  margin: 0 0 22px;
-}
+.section:last-child { border-bottom: none; }
 
-p { margin: 0 0 16px; }
-
-.body-copy {
-  color: var(--muted);
-  max-width: 720px;
-}
-
-.research-item {
-  padding: 25px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.research-item:last-child {
-  border-bottom: none;
-}
-
-.meta {
-  color: var(--accent);
-  font-size: 12px;
+.section h2 {
+  font-size: 25px;
   font-weight: 600;
-  letter-spacing: 0.4px;
+  line-height: 1.2;
+  margin: 0;
 }
 
-h3 {
-  font-size: 22px;
-  margin: 8px 0;
-}
+.section-body { min-width: 0; }
 
-.description {
-  color: var(--muted);
-  font-size: 14px;
-  max-width: 710px;
-}
+.section-body p { margin: 0 0 13px; }
 
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 15px;
-}
+.section-body p:last-child { margin-bottom: 0; }
 
-.tag {
-  border: 1px solid var(--line);
-  border-radius: 5px;
-  padding: 3px 9px;
-  color: #afc9e5;
-  font-size: 11px;
-}
+/* Publications */
 
 .publication {
-  padding: 18px 0;
+  margin-bottom: 19px;
+  padding-left: 17px;
+  position: relative;
 }
 
-.publication + .publication {
-  border-top: 1px solid var(--line);
+.publication::before {
+  content: "▪";
+  position: absolute;
+  left: 0;
+  color: var(--ink);
 }
 
-.pub-title { font-weight: 600; }
+.publication-title {
+  color: var(--accent);
+  font-weight: bold;
+}
 
-.pub-venue {
+.venue {
+  font-size: 14px;
+  font-style: italic;
   color: var(--muted);
-  font-size: 13px;
-  margin-top: 5px;
 }
+
+/* Research and projects */
+
+.project { margin-bottom: 23px; }
+
+.project:last-child { margin-bottom: 0; }
+
+.project-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+}
+
+.project h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  margin: 0 0 4px;
+  color: var(--accent);
+}
+
+.project-meta {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.project p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #364354;
+}
+
+/* Contact */
+
+.contact-email { font-size: 16px; }
 
 footer {
-  padding: 38px 0 55px;
   border-top: 1px solid var(--line);
-  color: var(--muted);
+  padding: 24px 0 38px;
   font-size: 13px;
+  color: var(--muted);
 }
 
-@media (max-width: 600px) {
-  nav { align-items: flex-start; }
-  .navlinks { gap: 12px; }
-  .hero { padding: 55px 0; }
-  section { padding: 34px 0; }
-  .container { padding: 0 20px; }
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 750px) {
+  .container { padding: 0 22px; }
+
+  .hero { min-height: auto; }
+
+  .topbar {
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding: 40px 0 55px;
+  }
+
+  .portrait { flex-basis: auto; }
+
+  .portrait img {
+    width: 140px;
+    height: 180px;
+    margin: auto;
+  }
+
+  .hero-divider { display: none; }
+
+  .hero-links { justify-content: center; }
+
+  .hero::after {
+    background: rgba(7,15,26,0.73);
+  }
+
+  .section {
+    display: block;
+    padding: 25px 0;
+  }
+
+  .section h2 {
+    font-size: 23px;
+    margin-bottom: 15px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -208,197 +345,232 @@ footer {
 </head>
 
 <body>
-<div class="container">
 
-<nav aria-label="Main navigation">
-  <a class="brand" href="#">Quang Tuan Truong</a>
-  <div class="navlinks">
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+<header class="hero" id="home">
+  <div class="container">
 
-<header class="hero">
-  <div class="eyebrow">
-    M.S. Artificial Intelligence · Boston University
-  </div>
+    <nav class="topbar" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-  <h1>
-    Learning representations and generative
-    models through geometry.
-  </h1>
+    <div class="hero-content">
 
-  <p class="intro">
-    I'm Quang Tuan Truong, a master's student at
-    Boston University working on geometric computer
-    vision, multimodal representation learning,
-    and geometry-aware generative modeling.
-  </p>
+      <div class="portrait">
+        <img
+          src="pixilart-drawing.png"
+          alt="Pixel-art self portrait drawn by Quang Tuan Truong"
+        >
+        <p class="portrait-note">
+          My first attempt at drawing myself in pixels —
+          perhaps I'll improve it someday :)
+        </p>
+      </div>
 
-  <div class="social">
-    <a href="https://github.com/tuan-truong-uf">GitHub</a>
-    <a href="https://linkedin.com/in/tuan-truongq">LinkedIn</a>
-    <a href="https://openreview.net/profile?id=~Quang_Tuan_Truong1">OpenReview</a>
-    <a href="mailto:quangtuantruong0403@gmail.com">Email</a>
+      <div class="hero-divider" aria-hidden="true"></div>
+
+      <div class="hero-text">
+        <h1>Quang Tuan<br>Truong</h1>
+
+        <p class="hero-subtitle">
+          M.S. in Artificial Intelligence<br>
+          Boston University
+        </p>
+
+        <div class="hero-links">
+          <a href="https://github.com/tuan-truong-uf">GitHub</a>
+          <span class="separator">|</span>
+          <a href="https://linkedin.com/in/tuan-truongq">LinkedIn</a>
+          <span class="separator">|</span>
+          <a href="https://openreview.net/profile?id=~Quang_Tuan_Truong1">OpenReview</a>
+          <span class="separator">|</span>
+          <a href="mailto:quangtuantruong0403@gmail.com">Email</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </header>
 
-<section id="about">
-  <h2>About</h2>
-  <p class="body-copy">
-    My research interests lie at the intersection
-    of mathematical structure and visual learning.
-    I'm particularly interested in how geometry
-    and probability can inform the design of
-    generative models and learned representations.
-  </p>
-  <p class="body-copy">
-    I currently work with Prof. Boqing Gong at
-    Boston University. My recent work spans
-    generative modeling on rotation manifolds,
-    representation evaluation on infant-centric
-    video, and multiview perception.
-  </p>
-</section>
+<main class="container">
 
-<section id="research">
-  <h2>Research</h2>
-
-  <article class="research-item">
-    <div class="meta">ONGOING · GENERATIVE MODELING</div>
-    <h3>Few-Step Generative Modeling on Riemannian Manifolds</h3>
-    <p class="description">
-      Investigating whether few-step generative models
-      on SO(3) preserve multimodal rotation distributions
-      while reducing sampling cost. Comparing Riemannian
-      Flow Matching and Riemannian Consistency Models
-      through mode coverage, distributional fidelity,
-      and sampling-step tradeoffs.
-    </p>
-    <div class="tags">
-      <span class="tag">SO(3)</span>
-      <span class="tag">Flow Matching</span>
-      <span class="tag">Consistency Models</span>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <h2>About</h2>
+    <div class="section-body">
+      <p>
+        I'm a master's student at Boston University
+        working on geometric computer vision,
+        multimodal representation learning, and
+        geometry-aware generative modeling.
+        I'm particularly interested in how
+        mathematical structure and probabilistic
+        modeling can inform the design of better
+        visual models.
+      </p>
+      <p>
+        I currently work with Prof. Boqing Gong
+        at Boston University, where my research
+        spans representation learning,
+        generative modeling, and visual perception.
+      </p>
     </div>
-  </article>
+  </section>
 
-  <article class="research-item">
-    <div class="meta">REPRESENTATION LEARNING</div>
-    <h3>Learning from Infant-Centric Video</h3>
-    <p class="description">
-      Evaluating representations learned from
-      egocentric developmental data through linear
-      probing and downstream classification.
-      Studying what spatial and visual information
-      is retained by pretrained vision encoders.
-    </p>
-    <div class="tags">
-      <span class="tag">Contrastive Learning</span>
-      <span class="tag">Multimodal Learning</span>
-      <span class="tag">Evaluation</span>
+  <!-- RESEARCH INTERESTS -->
+  <section class="section" id="research">
+    <h2>Research<br>Interests</h2>
+    <div class="section-body">
+      <p>
+        Multimodal representation learning;
+        geometric computer vision;
+        geometry-aware generative modeling;
+        model evaluation and failure analysis.
+      </p>
     </div>
-  </article>
+  </section>
 
-  <article class="research-item">
-    <div class="meta">COMPUTER VISION · MULTIVIEW GEOMETRY</div>
-    <h3>Clownfish Tracking and Multiview Perception</h3>
-    <p class="description">
-      Developing underwater-video preprocessing
-      and cross-camera reprojection diagnostics
-      to support tracking and annotation.
-      Investigating geometric consistency,
-      lens distortion, and multiview validation.
-    </p>
-    <div class="tags">
-      <span class="tag">Tracking</span>
-      <span class="tag">Multiview Geometry</span>
-      <span class="tag">Video</span>
+  <!-- PUBLICATIONS -->
+  <section class="section" id="publications">
+    <h2>Publications</h2>
+    <div class="section-body">
+
+      <div class="publication">
+        <div class="publication-title">
+          Making Sense of Touch from the Child's
+          View for Contrastive Learning
+        </div>
+        <div class="venue">
+          IEEE International Conference on
+          Development and Learning (ICDL),
+          Oral, 2026.
+        </div>
+      </div>
+
+      <div class="publication">
+        <div class="publication-title">
+          Who's Who in the Anemone?
+          A Benchmark for Clownfish Tracking in the Wild
+        </div>
+        <div class="venue">
+          NeurIPS 2026 Tackling Climate Change
+          with Machine Learning (TCCML) Workshop,
+          accepted.
+        </div>
+      </div>
+
     </div>
-  </article>
-</section>
+  </section>
 
-<section id="publications">
-  <h2>Publications</h2>
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <h2>Selected<br>Projects</h2>
+    <div class="section-body">
 
-  <div class="publication">
-    <div class="pub-title">
-      Making Sense of Touch from the Child's View
-      for Contrastive Learning
+      <article class="project">
+        <div class="project-header">
+          <h3>
+            Few-Step Generative Modeling on
+            Riemannian Manifolds
+          </h3>
+          <span class="project-meta">Ongoing</span>
+        </div>
+        <p>
+          Investigating whether few-step
+          generative models on SO(3) preserve
+          multimodal rotation distributions
+          while reducing sampling cost.
+          Comparing Riemannian Flow Matching
+          and Riemannian Consistency Models
+          through mode coverage, distribution
+          fidelity, and sampling-step tradeoffs.
+        </p>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <h3>VLA Perception Stabilization</h3>
+          <span class="project-meta">
+            PyTorch · OpenVLA · LIBERO
+          </span>
+        </div>
+        <p>
+          Studied temporal perception stability
+          in vision-language-action models.
+          Designed object-centric temporal
+          stabilization using Kalman filtering
+          and structured state representations,
+          with evaluations under perturbations.
+        </p>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <h3>
+            Clownfish Tracking &amp;
+            Multiview Perception
+          </h3>
+          <span class="project-meta">
+            SAM 2/3 · YOLO · OpenCV
+          </span>
+        </div>
+        <p>
+          Developed underwater-video preprocessing
+          and multiview diagnostics for tracking
+          and annotation. Investigated lens
+          distortion, triangulation, and
+          cross-view reprojection consistency.
+        </p>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <h3>Multimodal Emotion Recognition</h3>
+          <span class="project-meta">
+            CLIP · DINOv2 · wav2vec
+          </span>
+        </div>
+        <p>
+          Developed emotion classification
+          using visual, audio, and text
+          representations, with late-fusion
+          and confidence-weighted ensembles
+          achieving 80% macro-F1.
+        </p>
+      </article>
+
     </div>
-    <div class="pub-venue">
-      IEEE International Conference on Development
-      and Learning (ICDL), Oral, 2026
-    </div>
-  </div>
+  </section>
 
-  <div class="publication">
-    <div class="pub-title">
-      Who's Who in the Anemone?
-      A Benchmark for Clownfish Tracking in the Wild
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <div class="section-body">
+      <p>
+        I'm interested in research discussions
+        and collaborations in geometric machine
+        learning, computer vision, and
+        generative modeling.
+      </p>
+      <p class="contact-email">
+        <a href="mailto:quangtuantruong0403@gmail.com">
+          quangtuantruong0403@gmail.com
+        </a>
+      </p>
     </div>
-    <div class="pub-venue">
-      NeurIPS 2026 Tackling Climate Change with
-      Machine Learning Workshop · Accepted
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="projects">
-  <h2>Selected Projects</h2>
-
-  <article class="research-item">
-    <div class="meta">VISION-LANGUAGE-ACTION</div>
-    <h3>VLA Perception Stabilization</h3>
-    <p class="description">
-      Studied temporal perception stability in
-      vision-language-action models using OpenVLA
-      and LIBERO. Designed object-centric temporal
-      stabilization and evaluation pipelines for
-      perception drift under perturbations.
-    </p>
-    <div class="tags">
-      <span class="tag">PyTorch</span>
-      <span class="tag">OpenVLA</span>
-      <span class="tag">LIBERO</span>
-    </div>
-  </article>
-
-  <article class="research-item">
-    <div class="meta">MULTIMODAL PERCEPTION</div>
-    <h3>Multimodal Emotion Recognition</h3>
-    <p class="description">
-      Developed multimodal emotion classification
-      using visual, audio, and text representations.
-      Evaluated late-fusion and confidence-weighted
-      ensembles across seven emotion categories,
-      achieving 80% macro-F1.
-    </p>
-    <div class="tags">
-      <span class="tag">CLIP</span>
-      <span class="tag">DINOv2</span>
-      <span class="tag">wav2vec</span>
-    </div>
-  </article>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p class="body-copy">
-    I'm interested in research discussions and
-    collaborations in geometric machine learning,
-    computer vision, and generative modeling.
-  </p>
-  <a href="mailto:quangtuantruong0403@gmail.com">
-    quangtuantruong0403@gmail.com
-  </a>
-</section>
+</main>
 
 <footer>
-  Quang Tuan Truong · Boston University
+  <div class="container">
+    Quang Tuan Truong · Boston University
+  </div>
 </footer>
 
-</div>
 </body>
 </html>
